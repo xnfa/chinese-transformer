@@ -16,7 +16,7 @@ sp-encode \
     tests/sanguo-encoded
 
 gpt-2 \
-    tests/sanguo-test-run/ \
+    /storage/sanguo-test-run/ \
     tests/sanguo-encoded/ \
     tests/sanguo/sp-model.model \
     --batch-size 2 \
@@ -26,22 +26,22 @@ gpt-2 \
     --n-hidden 96 \
     --n-head 12 \
     --n-layer 10 \
-    --epochs 10 \
+    --epochs 100 \
     --log-every 2 \
     --save-every 50 \
     --validate-every 100 \
     --clean
 
 # resume training
-gpt-2 \
-    tests/sanguo-test-run/ \
-    tests/sanguo-encoded/ \
-    tests/sanguo/sp-model.model \
-    --batch-size 8 \
-    --g-accum-gradients 2 \
-    --n-ctx 1024 \
-    --n-embed 768 \
-    --n-hidden 96 \
-    --n-head 12 \
-    --n-layer 10 \
-    --epochs 2
+# gpt-2 \
+#     tests/sanguo-test-run/ \
+#     tests/sanguo-encoded/ \
+#     tests/sanguo/sp-model.model \
+#     --batch-size 8 \
+#     --g-accum-gradients 2 \
+#     --n-ctx 1024 \
+#     --n-embed 768 \
+#     --n-hidden 96 \
+#     --n-head 12 \
+#     --n-layer 10 \
+#     --epochs 2
