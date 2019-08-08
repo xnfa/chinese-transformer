@@ -38,7 +38,6 @@ gpt-2 \
     --n-hidden 96 \
     --n-head 12 \
     --n-layer 10 \
-    --epochs 2 \
     --log-every 2 \
     --save-every 50 \
     --validate-every 100 \
