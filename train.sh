@@ -7,12 +7,14 @@
 INPUT=$1
 STORAGE=${2:="/storage/"}
 EPOCHS=${3:="100"}
+ACCESS_KEY=$4
+SECRET_KEY=$5
 
 echo "Input directory: $INPUT"
 echo "Storage directory: $STORAGE"
 echo "EPOCHS: $EPOCHS"
 
-python prepare.py -i $INPUT -s $STORAGE
+python prepare.py -i $INPUT -s $STORAGE -key $ACCESS_KEY -secret $SECRET_KEY
 
 sp-train \
     $STORAGE$INPUT/ \
@@ -32,4 +34,4 @@ gpt-2 \
     --epochs $EPOCHS \
     --clean
 
-python upload.py -i $INPUT -s $STORAGE
+python upload.py -i $INPUT -s $STORAGE -key $ACCESS_KEY -secret $SECRET_KEY
