@@ -34,10 +34,10 @@ def main(
         n_ctx=1024,
         n_embed=768,
         n_head=12,
-        n_layer=12,
+        n_layer=10,
         n_hidden=None,  # equal to n_embed by default (better leave at None)
         clean=False,  # clean run folder
-        log_every=1,
+        log_every=100,
         save_every=1000,
         validate_every=None,  # same as save_every by default
         only_validate=False,
