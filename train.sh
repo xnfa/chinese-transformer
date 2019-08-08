@@ -31,7 +31,18 @@ gpt-2 \
     $STORAGE$INPUT/dist/ \
     $STORAGE$INPUT-encoded/ \
     $STORAGE$INPUT/sp-model.model \
-    --n_layer 10 \
+    --batch-size 2 \
+    --g-accum-gradients 2 \
+    --n-ctx 1024 \
+    --n-embed 768 \
+    --n-hidden 96 \
+    --n-head 12 \
+    --n-layer 10 \
+    --epochs 2 \
+    --log-every 2 \
+    --save-every 50 \
+    --validate-every 100 \
+    --clean
     --epochs $EPOCHS \
     --clean
 
