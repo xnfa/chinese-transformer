@@ -77,7 +77,7 @@ class ModelWrapper:
                       reverse=True)
 
     def generate_tokens(self, tokens_prefix: List[str], tokens_to_generate: int, top_k: int) -> List[str]:
-        print ("self.model.hparams.n_ctx: %d, tokens_to_generate: %d" % (self.model.hparams.n_ctx, tokens_to_generate))
+
         tokens = list(tokens_prefix)
 
         for i in range(tokens_to_generate):
@@ -93,7 +93,7 @@ class ModelWrapper:
             next_token_n = np.random.choice(top_k, p=probs)
             next_token = ntk[next_token_n][1]
             # print (next_token)
-            print ("Token # %d: %s" % (i, next_token))
+
             tokens.append(next_token)
 
         return tokens
@@ -114,7 +114,7 @@ def gen_main(model_path, prefix, tokens_to_generate=42, top_k=8):
     tokens = mw.tokenize(prefix)
 
     tokens_gen = mw.generate_tokens(tokens, tokens_to_generate, top_k)
-    print(mw.sp_model.DecodePieces(tokens_gen))
+    print("Received a {}".format(mw.sp_model.DecodePieces(tokens_gen)).encode('utf-8').decode('unicode_escape'))
 
 def fire_gen_main():
     fire.Fire(only_allow_defined_args(gen_main))
