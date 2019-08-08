@@ -31,6 +31,7 @@ gpt-2 \
     $STORAGE$INPUT/dist/ \
     $STORAGE$INPUT-encoded/ \
     $STORAGE$INPUT/sp-model.model \
+    --n_layer 10 \
     --epochs $EPOCHS \
     --clean
 
