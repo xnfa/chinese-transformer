@@ -20,6 +20,7 @@ import sentencepiece as spm
 from .fire_utils import only_allow_defined_args, get_defined_args
 from .model import Model, HParams
 from .inference import fixed_state_dict
+from .callback import progress
 
 
 def main(
@@ -47,6 +48,7 @@ def main(
         # These are set automatically when multiple GPUs are available
         device_id=None,
         n_devices=None,
+        model_hash=None
         ):
     if n_devices is None:
         n_devices = torch.cuda.device_count()
@@ -206,11 +208,13 @@ def main(
                 validate()
             if seen_tokens % epoch_size == 0:
                 pbar.update()
+                progress(model_hash, (seen_tokens // epoch_size) / epochs, False)
                 epoch_pbar.close()
                 epoch_pbar = init_epoch_pbar()
         # end of training
         save()
         validate()
+        progress(model_hash, 1, True)
 
     def validate():
         if not is_main or world_size != 1:

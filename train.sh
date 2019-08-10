@@ -31,6 +31,7 @@ gpt-2 \
     $STORAGE$INPUT/dist/ \
     $STORAGE$INPUT-encoded/ \
     $STORAGE$INPUT/sp-model.model \
+    --epochs $EPOCHS \
     --batch-size 2 \
     --g-accum-gradients 2 \
     --n-ctx 1024 \
@@ -41,8 +42,7 @@ gpt-2 \
     --log-every 2 \
     --save-every 50 \
     --validate-every 100 \
-    --clean
-    --epochs $EPOCHS \
+    --model_hash $INPUT \
     --clean
 
 python upload.py -i $INPUT -s $STORAGE -key $ACCESS_KEY -secret $SECRET_KEY
