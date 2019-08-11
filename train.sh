@@ -36,7 +36,7 @@ gpt-2 \
     --g-accum-gradients 2 \
     --n-ctx 1024 \
     --n-embed 768 \
-    --n-hidden 384 \
+    --n-hidden 96 \
     --n-head 12 \
     --n-layer 10 \
     --log-every 2 \
