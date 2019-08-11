@@ -33,15 +33,11 @@ gpt-2 \
     $STORAGE$INPUT/sp-model.model \
     --epochs $EPOCHS \
     --batch-size 2 \
-    --g-accum-gradients 2 \
     --n-ctx 1024 \
     --n-embed 768 \
     --n-hidden 96 \
-    --n-head 12 \
-    --n-layer 10 \
-    --log-every 2 \
-    --save-every 50 \
-    --validate-every 100 \
+    --log-every 100 \
+    --save-every 1000 \
     --model_hash $INPUT \
     --clean
 
